@@ -4,16 +4,16 @@
 set $mod Mod4
 set $sup Mod1
 
-set $ws1 "1: "
+set $ws1 "1: .>"
 set $ws2 "2: CODE"
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws3 "3: CODE"
+set $ws4 "4: WEB"
+set $ws5 "5: OTHERS"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
 
 set $black       #212121
 set $darkblack   #000000
@@ -36,7 +36,7 @@ set $background  #000000
 set $transparent #333333
 
 set $default_gaps_inner 4
-set $default_gaps_outer 4
+set $default_gaps_outer -4
 
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
@@ -58,10 +58,10 @@ font pango:Consolas, FontAwesome Bold 10
 # client.urgent            #2f343a  $red        #eff1f5  #900000
 # client.background        $black
 
-#CLASS                   BORDER         BACKGROUND        TEXT      INDICATOR
-client.focused           $transparent   $transparent      $white    $transparent
-client.focused_inactive  #333333        $transparent      $white    $transparent
-client.unfocused         #333333        #2b303b           #888888   #292d2e
+#CLASS                   BORDER         BACKGROUND        TEXT      INDICATOR      CHILD BORDER
+client.focused           $transparent   $transparent      $white    $darkwhite     $white
+client.focused_inactive  $transparent   $transparent      $white    $transparent
+client.unfocused         $transparent   #2b303b           #888888   #292d2e
 client.urgent            $transparent   $transparent      $red      $transparent
 client.background        $transparent
 
@@ -145,7 +145,12 @@ bindsym $sup+m    exec amixer -D pulse set  Master 1+ toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+#bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+#bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+#bindsym $mod+Print exec scrot -s -e '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+
+bindsym Print exec gnome-screenshot
+bindsym $mod+Print exec gnome-screenshot -a
 
 bindsym $mod+Shift+p  floating toggle
 bindsym $mod+p        focus mode_toggle
@@ -175,6 +180,7 @@ bindsym $mod+r mode "resize"
 
 new_window none
 focus_follows_mouse no
+for_window [class="^"], border pixel 1
 
 for_window [class="feh"] floating enable
 for_window [class="^TeamViewer.exe$"] floating enable
@@ -198,15 +204,16 @@ for_window [instance="__nmtui"] floating enable
 for_window [class="(?i)pavucontrol"] floating enable, border normal, move position mouse
 for_window [class="Anki"] floating enable, border normal
 for_window [class="Zeal"] floating enable, border normal
+for_window [class="Skype"] floating enable, border normal
 
 bar {
   position top
   separator_symbol " | "
   height 20
 
-  # status_command i3status --config /etc/i3status.conf
+  status_command i3status --config /etc/i3status.conf
   # status_command  i3status
-  status_command SCRIPT_DIR=/usr/local/libexec/i3blocks i3blocks -c ~/.i3/i3blocks.conf
+  #status_command SCRIPT_DIR=/usr/local/libexec/i3blocks i3blocks -c ~/.i3/i3blocks.conf
 
   colors {
     statusline         $white
@@ -223,6 +230,7 @@ bar {
 }
 
 #assign workspace
+assign [class="google-chrome"] $ws2
 assign [class="Sublime"] $ws2
 assign [class="Skype"] $ws5
 assign [class="Thunderbird"] $ws5
@@ -237,7 +245,9 @@ bindsym $sup+d exec pcmanfm
 bindsym $sup+t exec thunderbird
 bindsym $sup+c exec google-chrome
 
-bindsym $mod+Ctrl+l exec lock
+#bindsym $mod+Ctrl+l exec lock
+bindsym $mod+Ctrl+l exec gnome-screensaver-command -l
+bindsym $mod+Shift+s exec unity-control-center
 
 # Startup programs
 # exec skype

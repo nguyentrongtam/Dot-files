@@ -38,8 +38,8 @@ set $transparent #333333
 set $default_gaps_inner 4
 set $default_gaps_outer -4
 
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+# gaps inner $default_gaps_inner
+# gaps outer $default_gaps_outer
 
 # workspace $ws1 gaps inner 2
 # workspace $ws1 gaps outer 5
@@ -182,34 +182,34 @@ new_window none
 focus_follows_mouse no
 for_window [class="^"], border pixel 1
 
-for_window [class="feh"] floating enable
-for_window [class="^TeamViewer.exe$"] floating enable
-for_window [title="^TeamViewer$"] floating enable
-for_window [title="^Computers & Contacts$"] floating enable
-for_window [title="- TeamViewer -"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [class="Xfce4-notifyd"] floating enable;border none; focus mode_toggle
-for_window [window_role="pop-up"] floating enable, border normal
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
-for_window [class="(?i)gsimplecal"] floating enable, move position mouse
-for_window [class="(?i)qemu-system"] floating enable
-for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable
-for_window [instance="sun-awt-X11-XFramePeer"] floating enable
-for_window [instance="__scratchpad"] floating enable
-for_window [instance="__nmtui"] floating enable
-for_window [class="(?i)pavucontrol"] floating enable, border normal, move position mouse
-for_window [class="Anki"] floating enable, border normal
-for_window [class="Zeal"] floating enable, border normal
-for_window [class="Skype"] floating enable, border normal
+# for_window [class="feh"] floating enable
+# for_window [class="^TeamViewer.exe$"] floating enable
+# for_window [title="^TeamViewer$"] floating enable
+# for_window [title="^Computers & Contacts$"] floating enable
+# for_window [title="- TeamViewer -"] floating enable
+# for_window [window_role="bubble"] floating enable
+# for_window [class="Xfce4-notifyd"] floating enable;border none; focus mode_toggle
+# for_window [window_role="pop-up"] floating enable, border normal
+# for_window [window_role="bubble"] floating enable
+# for_window [window_role="task_dialog"] floating enable
+# for_window [window_role="Preferences"] floating enable
+# for_window [window_type="dialog"] floating enable
+# for_window [window_type="menu"] floating enable
+# for_window [class="(?i)gsimplecal"] floating enable, move position mouse
+# for_window [class="(?i)qemu-system"] floating enable
+# for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable
+# for_window [instance="sun-awt-X11-XFramePeer"] floating enable
+# for_window [instance="__scratchpad"] floating enable
+# for_window [instance="__nmtui"] floating enable
+# for_window [class="(?i)pavucontrol"] floating enable, border normal, move position mouse
+# for_window [class="Anki"] floating enable, border normal
+# for_window [class="Zeal"] floating enable, border normal
+# for_window [class="Skype"] floating enable, border normal
 
 bar {
   position top
   separator_symbol " | "
-  height 20
+  # height 20
 
   status_command i3status --config /etc/i3status.conf
   # status_command  i3status
@@ -221,11 +221,11 @@ bar {
     separator          $blue
 
     #                  BORDER       BACKGROUND   TEXT
-    focused_workspace  $transparent $transparent $white
-    inactive_workspace $transparent $transparent $blue
-    active_workspace   $transparent $transparent $white
-    urgent_workspace   $transparent $transparent $red
-    binding_mode       $transparent $transparent $red
+    # focused_workspace  $transparent $transparent $white
+    # inactive_workspace $transparent $transparent $blue
+    # active_workspace   $transparent $transparent $white
+    # urgent_workspace   $transparent $transparent $red
+    # bindinz1g_mode       $transparent $transparent $red
   }
 }
 
